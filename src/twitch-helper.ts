@@ -12,7 +12,7 @@ export async function getToken() {
   } else {
     const res = await getActualToken();
     if (res.status === 200) {
-      exp = Date.now() + res.data.expires_in / 2;
+      exp = Date.now() + res.data.expires_in / 2 * 1000;
       token = res.data.access_token;
       return token;
     }
